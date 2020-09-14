@@ -28,6 +28,15 @@ public class BookController {
 		return "redirect:../booklist";
 	}
 	
+	@GetMapping("/edit/{id}")
+	public String editBook(@PathVariable("id") Long bookID, Model model) {
+		model.addAttribute("book", repository.findById(bookID).get());
+		
+		return "edit";
+	}
+	
+	
+	
 	@GetMapping("/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
@@ -38,5 +47,12 @@ public class BookController {
 	public String saveBook(Book book) {
 		repository.save(book);
 		return "redirect:booklist";
+	}
+	@PostMapping("/saveEdited/{id}")
+	public String saveEditedBook(@PathVariable("id") long id, Book book, Model model){
+		book.setId(id);
+		repository.save(book);
+		model.addAttribute("books", repository.findAll());
+		return "redirect:../booklist";
 	}
 }
