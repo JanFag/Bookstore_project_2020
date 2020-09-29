@@ -15,6 +15,9 @@ import bookstore_project.bookstore_2020.domain.Book;
 import bookstore_project.bookstore_2020.domain.BookRepository;
 import bookstore_project.bookstore_2020.domain.Category;
 import bookstore_project.bookstore_2020.domain.CategoryRepository;
+import bookstore_project.bookstore_2020.domain.User;
+import bookstore_project.bookstore_2020.domain.UserRepository;
+
 
 @SpringBootApplication
 public class Bookstore2020Application {
@@ -24,7 +27,7 @@ public class Bookstore2020Application {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository) {
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository) {
 	return (args) -> {
 		log.info("save a couple of books");
 		crepository.save(new Category("Fantasy"));
@@ -39,6 +42,11 @@ public class Bookstore2020Application {
 		repository.save(b1);
 		repository.save(b2);
 		repository.save(b3);
+		
+		User user1 = new User("user", "$2y$10$Smf6A0Q1p.EwuZB4dtUCKu1VxhC3YESsM7v3.epZkhJmsMzAiIqWy", "USER");
+		User user2 = new User("admin", "$2y$10$9mCzixng4pcs4Ziv34G5xebPs2MeeV1QdZxBlm785FBgC8FOXRSOC", "ADMIN");
+		urepository.save(user1);
+		urepository.save(user2);
 		
 	};
 	}

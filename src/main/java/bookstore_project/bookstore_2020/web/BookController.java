@@ -19,6 +19,7 @@ import bookstore_project.bookstore_2020.domain.BookRepository;
 import bookstore_project.bookstore_2020.domain.CategoryRepository;
 
 
+
 @Controller
 public class BookController {
 	
@@ -27,6 +28,8 @@ public class BookController {
 	
 	@Autowired
 	private CategoryRepository crepository;
+	
+	
 	
 	@RequestMapping("/login")
 	public String login() {
