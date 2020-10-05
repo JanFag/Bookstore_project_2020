@@ -35,7 +35,7 @@ public class Bookstore2020Application {
 		crepository.save(new Category("Romance"));
 		crepository.save(new Category("Mystery"));
 		crepository.save(new Category("Horror"));
-		Book b1 = new Book("Kuolleet sielut", " Gogol, Nikolai", 1842, "9780199554669", 39.95, crepository.findByName("Adventure").get(0));
+		Book b1 = new Book("Kuolleet sielut", "Gogol, Nikolai", 1842, "9780199554669", 39.95, crepository.findByName("Adventure").get(0));
 		Book b2 = new Book("Spiritistinen istunto", "Kaartinen, Marjo", 2020, "9789518581317", 26.90, crepository.findByName("Fantasy").get(0));
 		Book b3 = new Book("Homo Fennicus", "Lang, Valter", 2020, "9789518581300", 27.90, crepository.findByName("Horror").get(0));
 		
